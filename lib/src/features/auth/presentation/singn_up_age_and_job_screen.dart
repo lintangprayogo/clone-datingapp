@@ -22,27 +22,29 @@ class _SignUpAgeJobScreenState extends State<SignUpAgeJobScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(
             vertical: AppPadding.p50, horizontal: AppPadding.p24),
-        child: Column(
-          children: [
-            const BannerWidget(),
-            CustomTextFieldWidget(
-              controller: ageController,
-              labelName: "Job",
-              hintText: "Enter Your Job",
-            ),
-            CustomTextFieldWidget(
-              controller: ageController,
-              labelName: "Age",
-              hintText: "Enter Your Age",
-            ),
-            const SizedBox(height: 117.0),
-            CustomButtonWidget(
-              label: "Continue Sign Up",
-              onTap: () {
-                Navigator.pushNamed(context, SignUpAgeJobScreen.routeName);
-              },
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const BannerWidget(),
+              CustomTextFieldWidget(
+                controller: ageController,
+                labelName: "Job",
+                hintText: "Enter Your Job",
+              ),
+              CustomTextFieldWidget(
+                controller: ageController,
+                labelName: "Age",
+                hintText: "Enter Your Age",
+              ),
+              const SizedBox(height: 117.0),
+              CustomButtonWidget(
+                label: "Continue Sign Up",
+                onTap: () {
+                  Navigator.pushNamed(context, SignUpAgeJobScreen.routeName);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
