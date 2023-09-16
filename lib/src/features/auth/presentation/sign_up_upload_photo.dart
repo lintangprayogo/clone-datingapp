@@ -3,6 +3,7 @@ import 'package:simple_datting_app/src/common_widgets/custom_button_widget.dart'
 import 'package:simple_datting_app/src/common_widgets/custom_text_button.dart';
 import 'package:simple_datting_app/src/common_widgets/logo_and_tagline_widget.dart';
 import 'package:simple_datting_app/src/common_widgets/upload_photo_widget.dart';
+import 'package:simple_datting_app/src/features/loves_page/presentation/explore_people_screen.dart';
 import 'package:simple_datting_app/src/theme_manager/font_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/style_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';
@@ -48,7 +49,11 @@ class SignUpUploadPhotoSceen extends StatelessWidget {
             const SizedBox(
               height: AppSize.s20,
             ),
-            CustomTextButtonWidget(onPressed: () {}, label: "Skip for Now")
+            CustomTextButtonWidget(
+                onPressed: () {
+                  Navigator.pushNamed(context, ExplorePeopleScreen.routeName);
+                },
+                label: "Skip for Now")
           ],
         )),
       ),
