@@ -16,12 +16,15 @@ class PeopleLovedScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "People You\nLoved",
+          textAlign: TextAlign.center,
           style: getWhiteTextStyle(
               fontSize: FontSizeManager.f20,
               fontWeight: FontWeightManeger.semiBold),
         ),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           iconSize: AppSize.s20,
           icon: const Icon(Icons.arrow_back),
         ),
