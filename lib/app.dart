@@ -3,6 +3,7 @@ import 'package:simple_datting_app/src/features/auth/presentation/sign_up_screen
 import 'package:simple_datting_app/src/features/auth/presentation/sign_up_upload_photo.dart';
 import 'package:simple_datting_app/src/features/auth/presentation/singn_up_age_and_job_screen.dart';
 import 'package:simple_datting_app/src/features/loves_page/presentation/explore_people_screen.dart';
+import 'package:simple_datting_app/src/features/loves_page/presentation/people_loved_screen.dart';
 import 'package:simple_datting_app/src/theme_manager/theme_data_manager.dart';
 
 class AppScreen extends StatelessWidget {
@@ -15,13 +16,14 @@ class AppScreen extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: getApplicationThemeData(),
-      initialRoute: ExplorePeopleScreen.routeName,
+      initialRoute: PeopleLovedScreen.routeName,
       routes: {
         SignUpScreen.routeName: (context) => const SignUpScreen(),
         SignUpAgeJobScreen.routeName: (context) => const SignUpAgeJobScreen(),
         SignUpUploadPhotoSceen.routeName: (context) =>
             const SignUpUploadPhotoSceen(),
         ExplorePeopleScreen.routeName: (context) => const ExplorePeopleScreen(),
+        PeopleLovedScreen.routeName: (context) => const PeopleLovedScreen()
       },
     );
   }

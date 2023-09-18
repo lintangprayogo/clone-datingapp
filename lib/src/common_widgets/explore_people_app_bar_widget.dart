@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_datting_app/src/common_widgets/logo_widget.dart';
+import 'package:simple_datting_app/src/features/loves_page/presentation/people_loved_screen.dart';
 import 'package:simple_datting_app/src/theme_manager/asset_image_icon_manager.dart';
 
 class ExplorePeopleAppBarWidget extends StatelessWidget {
@@ -21,14 +22,19 @@ class ExplorePeopleAppBarWidget extends StatelessWidget {
                   fit: BoxFit.cover)),
         ),
         const LogoWidget(),
-        Container(
-          width: 24,
-          height: 24,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(
-                      "${AssetImageIconManager.assetPath}icon_notification.png"),
-                  fit: BoxFit.cover)),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, PeopleLovedScreen.routeName);
+          },
+          child: Container(
+            width: 24,
+            height: 24,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(
+                        "${AssetImageIconManager.assetPath}icon_notification.png"),
+                    fit: BoxFit.cover)),
+          ),
         )
       ],
     );
