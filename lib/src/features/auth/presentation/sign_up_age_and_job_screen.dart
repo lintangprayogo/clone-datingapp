@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_datting_app/src/common_widgets/banner_widget.dart';
 import 'package:simple_datting_app/src/common_widgets/custom_button_widget.dart';
 import 'package:simple_datting_app/src/common_widgets/custom_text_field_widget.dart';
+import 'package:simple_datting_app/src/features/loves_page/presentation/explore_people_screen.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';
 
 class SignUpAgeJobScreen extends StatefulWidget {
@@ -40,7 +41,7 @@ class _SignUpAgeJobScreenState extends State<SignUpAgeJobScreen> {
               CustomButtonWidget(
                 label: "Continue Sign Up",
                 onTap: () {
-                  Navigator.pushNamed(context, SignUpAgeJobScreen.routeName);
+                  Navigator.pushNamed(context, ExplorePeopleScreen.routeName);
                 },
               ),
             ],

@@ -30,7 +30,9 @@ class PeopleLovedScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             iconSize: AppSize.s20,
             icon: const Icon(Icons.search),
           )

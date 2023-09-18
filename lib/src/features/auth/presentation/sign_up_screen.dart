@@ -3,7 +3,7 @@ import 'package:simple_datting_app/src/common_widgets/banner_widget.dart';
 import 'package:simple_datting_app/src/common_widgets/custom_button_widget.dart';
 import 'package:simple_datting_app/src/common_widgets/custom_text_button.dart';
 import 'package:simple_datting_app/src/common_widgets/custom_text_field_widget.dart';
-import 'package:simple_datting_app/src/features/auth/presentation/singn_up_age_and_job_screen.dart';
+import 'package:simple_datting_app/src/features/auth/presentation/sign_up_age_and_job_screen.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';
 
 class SignUpScreen extends StatefulWidget {
