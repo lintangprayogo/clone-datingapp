@@ -20,6 +20,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  String? validationInput() {
+    if (nameController.text.isEmpty ||
+        emailController.text.isEmpty ||
+        passwordController.text.isEmpty) {
+      return "Name Or Email Or Password\' cant be Empty";
+    }
+    if (nameController.text.length < 4 ||
+        emailController.text.length < 10 ||
+        passwordController.text.length < 8) {
+      return "Too Short";
+    }
+    if (!emailController.text.contains("@")) {
+      return "email not valid";
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +65,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 CustomButtonWidget(
                   label: "Let,s Started",
                   onTap: () {
-                    Navigator.pushNamed(context, SignUpAgeJobScreen.routeName);
+                    final message = validationInput();
+                    if (message != null) {
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(SnackBar(content: Text(message)));
+                      return;
+                    }
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpAgeJobScreen(
+                              fullName: nameController.text,
+                              email: emailController.text,
+                              password: passwordController.text),
+                        ));
                   },
                 ),
                 const SizedBox(height: AppSize.s20),
