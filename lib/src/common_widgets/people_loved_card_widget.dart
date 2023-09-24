@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:simple_datting_app/src/features/loves_page/domain/user.dart';
 import 'package:simple_datting_app/src/features/loves_page/presentation/people_profile_screen.dart';
 import 'package:simple_datting_app/src/theme_manager/asset_collor_manager.dart';
-import 'package:simple_datting_app/src/theme_manager/asset_image_icon_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/font_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/style_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';
 
 class PeopleLovedCardWidget extends StatelessWidget {
-  const PeopleLovedCardWidget({super.key});
+  final User user;
+
+  const PeopleLovedCardWidget({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,8 @@ class PeopleLovedCardWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: AppPadding.p24),
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, PeopleProfileScreen.routeName);
+          Navigator.pushNamed(context, PeopleProfileScreen.routeName,
+              arguments: user);
         },
         child: Container(
           margin: const EdgeInsets.only(bottom: AppMargin.m18),
@@ -27,21 +30,19 @@ class PeopleLovedCardWidget extends StatelessWidget {
             leading: Container(
               width: 70,
               height: 70,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: AssetImage(
-                          "${AssetImageIconManager.assetPath}people_love3_image.png"),
-                      fit: BoxFit.cover)),
+                      image: AssetImage(user.imagePath), fit: BoxFit.cover)),
             ),
             title: Text(
-              "Ismirada",
+              user.fullName,
               style: getWhiteTextStyle(
                   fontSize: FontSizeManager.f20,
                   fontWeight: FontWeightManeger.semiBold),
             ),
             subtitle: Text(
-              "24 Lawyer",
+              "${user.age}, ${user.job}",
               style: getGrey60TextStyle(),
             ),
           ),

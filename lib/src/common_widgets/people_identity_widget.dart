@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:simple_datting_app/src/features/loves_page/domain/user.dart';
 import 'package:simple_datting_app/src/theme_manager/font_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/style_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';
 
 class PeopleIdentityWidget extends StatelessWidget {
-  const PeopleIdentityWidget({
-    super.key,
-  });
+  final User user;
+  const PeopleIdentityWidget({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +15,16 @@ class PeopleIdentityWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Shanti",
+          Text(user.fullName,
               style: getWhiteTextStyle(
                   fontSize: FontSizeManager.f28,
                   fontWeight: FontWeightManeger.semiBold)),
-          Text("22 Lawyer", style: getBlackTextStyle()),
+          Text("${user.age}, ${user.job}", style: getBlackTextStyle()),
           const SizedBox(
             height: AppSize.s16,
           ),
           Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Amet nulla facilisi morbi tempus iaculis urna id volutpat.",
+            user.description,
             style: getWhiteTextStyle(),
           )
         ],

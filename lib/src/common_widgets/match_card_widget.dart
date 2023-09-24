@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:simple_datting_app/src/common_widgets/glass_card_widget.dart';
+import 'package:simple_datting_app/src/features/loves_page/domain/user.dart';
 import 'package:simple_datting_app/src/theme_manager/asset_collor_manager.dart';
-import 'package:simple_datting_app/src/theme_manager/asset_image_icon_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';
 
 class MatchCardWidget extends StatelessWidget {
-  const MatchCardWidget({super.key});
+  final User user;
+
+  const MatchCardWidget({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +18,9 @@ class MatchCardWidget extends StatelessWidget {
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
-              image: const DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage(
-                    "${AssetImageIconManager.assetPath}people_love2_image.png"),
+                image: AssetImage(user.imagePath),
               ),
               border: Border.all(
                 width: 10.0,
@@ -28,7 +29,7 @@ class MatchCardWidget extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(AppSize.s70)),
         ),
-        const GlassCardWidget()
+        GlassCardWidget(user: user)
       ],
     );
   }

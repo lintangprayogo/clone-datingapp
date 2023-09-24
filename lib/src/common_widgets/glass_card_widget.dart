@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:simple_datting_app/src/features/loves_page/domain/user.dart';
 import 'package:simple_datting_app/src/theme_manager/asset_image_icon_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/font_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/style_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';
 
 class GlassCardWidget extends StatelessWidget {
-  const GlassCardWidget({
-    super.key,
-  });
+  final User user;
+
+  const GlassCardWidget({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +33,13 @@ class GlassCardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Yor Forger",
+                user.fullName,
                 style: getWhiteTextStyle(
                     fontSize: FontSizeManager.f20,
                     fontWeight: FontWeightManeger.semiBold),
               ),
               Text(
-                "Assasins",
+                "${user.age}, ${user.job}",
                 style: getWhiteTextStyle(fontSize: FontSizeManager.f14),
               ),
             ],

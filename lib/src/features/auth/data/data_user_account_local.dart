@@ -14,7 +14,7 @@ class DataUserAccountLocal {
 
   static setDataUserAccountToStorage(UserAccount userAccount) async {
     final pref = await SharedPreferences.getInstance();
-    await pref.setString(userAccountKey, jsonEncode(userAccount.toMap()));
+    await pref.setString(userAccountKey, userAccount.toJson());
   }
 }
 

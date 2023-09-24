@@ -4,7 +4,6 @@ import 'package:simple_datting_app/src/common_widgets/custom_button_widget.dart'
 import 'package:simple_datting_app/src/common_widgets/custom_text_field_widget.dart';
 import 'package:simple_datting_app/src/features/auth/domain/user_account.dart';
 import 'package:simple_datting_app/src/features/auth/presentation/sign_up_upload_photo.dart';
-import 'package:simple_datting_app/src/features/loves_page/presentation/explore_people_screen.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';
 
 class SignUpAgeJobScreen extends StatefulWidget {
@@ -30,7 +29,7 @@ class _SignUpAgeJobScreenState extends State<SignUpAgeJobScreen> {
 
   String? validationInput() {
     if (jobController.text.isEmpty || ageController.text.isEmpty) {
-      return "Job Or Email \' cant be Empty";
+      return "Job Or Email cant be Empty";
     }
 
     return null;

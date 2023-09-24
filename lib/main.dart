@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_datting_app/app.dart';
 import 'package:simple_datting_app/src/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:simple_datting_app/src/features/loves_page/presentation/bloc/explore_people/explore_people_bloc.dart';
+import 'package:simple_datting_app/src/features/loves_page/presentation/bloc/people_loved/people_loved_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +17,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(providers: [
       BlocProvider(
         create: (context) => AuthBloc(),
+      ),
+      BlocProvider(
+        create: (context) => ExplorePeopleBloc(),
+      ),
+      BlocProvider(
+        create: (context) => PeopleLovedBloc(),
       )
     ], child: const AppScreen());
   }

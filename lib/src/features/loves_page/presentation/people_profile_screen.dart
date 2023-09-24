@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_datting_app/src/common_widgets/custom_button_widget.dart';
 import 'package:simple_datting_app/src/common_widgets/people_identity_widget.dart';
 import 'package:simple_datting_app/src/common_widgets/profile_detail_image_widget.dart';
+import 'package:simple_datting_app/src/features/loves_page/domain/user.dart';
 import 'package:simple_datting_app/src/theme_manager/asset_image_icon_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';
 
@@ -11,14 +12,19 @@ class PeopleProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = ModalRoute.of(context)?.settings.arguments as User;
     return Scaffold(
       body: Column(
         children: [
-          const ProfileDetailImageWidget(),
+          ProfileDetailImageWidget(
+            user: user,
+          ),
           const SizedBox(
             height: AppSize.s30,
           ),
-          const PeopleIdentityWidget(),
+          PeopleIdentityWidget(
+            user: user,
+          ),
           const SizedBox(
             height: AppSize.s16,
           ),
