@@ -4,7 +4,6 @@ import 'package:simple_datting_app/src/common_widgets/match_button_widget.dart';
 import 'package:simple_datting_app/src/features/loves_page/domain/user.dart';
 import 'package:simple_datting_app/src/features/loves_page/presentation/bloc/people_loved/people_loved_bloc.dart';
 import 'package:simple_datting_app/src/features/loves_page/presentation/explore_people_screen.dart';
-import 'package:simple_datting_app/src/theme_manager/asset_image_icon_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/font_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/style_manager.dart';
 import 'package:simple_datting_app/src/theme_manager/values_manager.dart';

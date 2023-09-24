@@ -36,6 +36,13 @@ class _SignUpAgeJobScreenState extends State<SignUpAgeJobScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    jobController.dispose();
+    ageController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
@@ -61,6 +68,7 @@ class _SignUpAgeJobScreenState extends State<SignUpAgeJobScreen> {
                 onTap: () {
                   final message = validationInput();
                   if (message != null) {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text(message)));
                     return;

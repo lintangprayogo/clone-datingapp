@@ -38,6 +38,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
@@ -67,6 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onTap: () {
                     final message = validationInput();
                     if (message != null) {
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       ScaffoldMessenger.of(context)
                           .showSnackBar(SnackBar(content: Text(message)));
                       return;

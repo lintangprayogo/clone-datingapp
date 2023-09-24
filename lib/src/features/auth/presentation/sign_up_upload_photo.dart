@@ -104,30 +104,50 @@ class _SignUpUploadPhotoSceenState extends State<SignUpUploadPhotoSceen> {
               const SizedBox(
                 height: 240,
               ),
-              CustomButtonWidget(
-                label: "Update My Profile",
-                onTap: () {
-                  userAccount.imageProfile = image?.path;
-                  context.read<AuthBloc>().add(RegisterAuthEvent(
-                      isRegister: true, userAccount: userAccount));
+              BlocBuilder<AuthBloc, AuthState>(
+                builder: (context, state) {
+                  if (state is AuthLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  return CustomButtonWidget(
+                    label: 'Update My Profile',
+                    onTap: () async {
+                      if (image == null) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('No Image Update'),
+                          ),
+                        );
+                        return;
+                      }
+                      userAccount.imageProfile = image!.path;
+                      if (mounted) {
+                        context.read<AuthBloc>().add(
+                              RegisterAuthEvent(
+                                userAccount: userAccount,
+                                isRegister: true,
+                              ),
+                            );
+                      }
+                    },
+                  );
                 },
               ),
               const SizedBox(
                 height: AppSize.s20,
               ),
-              BlocBuilder<AuthBloc, AuthState>(
-                builder: (context, state) {
-                  if (state is AuthLoading) {
-                    return const CircularProgressIndicator();
-                  }
-                  return CustomTextButtonWidget(
-                      onPressed: () {
-                        context.read<AuthBloc>().add(RegisterAuthEvent(
-                            isRegister: true, userAccount: userAccount));
-                      },
-                      label: "Skip for Now");
+              CustomTextButtonWidget(
+                label: 'Skip for Now',
+                onPressed: () {
+                  context.read<AuthBloc>().add(
+                        RegisterAuthEvent(
+                          userAccount: userAccount,
+                          isRegister: true,
+                        ),
+                      );
                 },
-              )
+              ),
             ],
           )),
         ),
